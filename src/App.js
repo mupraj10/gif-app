@@ -2,22 +2,18 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import "./App.css";
-import RandomGif from "./components/random-gif";
+import Gallery from "./components/Gallery";
 import { fetchRandomGif } from "./actions/simpleAction";
-
 
 class App extends Component {
   componentDidMount() {
-    this.props.loadData()
-    // giphy.random("s").then(foundGif => console.log(foundGif));
+    this.props.loadData();
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <RandomGif />
-        </header>
+        <Gallery />
       </div>
     );
   }
@@ -32,7 +28,7 @@ const mapState = state => {
 const mapDispatch = dispatch => {
   return {
     loadData() {
-      dispatch(fetchRandomGif())
+      dispatch(fetchRandomGif());
     }
   };
 };
