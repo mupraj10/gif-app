@@ -1,29 +1,43 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import logo from "./logo.svg";
+
 import "./App.css";
+import RandomGif from "./components/random-gif";
+import { fetchRandomGif } from "./actions/simpleAction";
+
 
 class App extends Component {
+  componentDidMount() {
+    this.props.loadData()
+    // giphy.random("s").then(foundGif => console.log(foundGif));
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <RandomGif />
         </header>
       </div>
     );
   }
 }
 
-export default connect()(App);
+const mapState = state => {
+  return {
+    gif: state.randomGif
+  };
+};
+
+const mapDispatch = dispatch => {
+  return {
+    loadData() {
+      dispatch(fetchRandomGif())
+    }
+  };
+};
+
+export default connect(
+  mapState,
+  mapDispatch
+)(App);
