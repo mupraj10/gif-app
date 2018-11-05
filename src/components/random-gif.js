@@ -5,7 +5,7 @@ class RandomGif extends Component {
   render() {
     return (
       <div>
-      <h1> Adding in Paper</h1>
+        Adding in Paper
         <img src={this.props.gif.image_original_url} alt="some img" />
       </div>
     );

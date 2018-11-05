@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 class GridItem extends Component {
   render() {
     return (
-      <div className={this.props.title}>
-      thing
+      <div onClick={this.props.onClick} className={this.props.title}>
+thing
       </div>
     );
   }
