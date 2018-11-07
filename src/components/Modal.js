@@ -19,8 +19,9 @@ const Modal = props => {
           transform: props.open ? "translateY(-60vh)" : "none"
         }}
       >
-        {" "}
-        <span onClick={props.handleOpen}> Click to reveal! </span>{" "}
+        <span className="modal-covertext" onClick={props.handleOpen}>
+          Click to reveal!
+        </span>
       </div>
       <div className="modal-header">
         <span className="close-modal-btn" onClick={props.close}>
