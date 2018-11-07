@@ -4,24 +4,33 @@ import Modal from "../components/Modal";
 import RandomGif from "../components/random-gif";
 import Gallery from "../components/Gallery";
 import Theme from "../components/Theme";
+import DateGif from "../components/DateGif";
 
 import "./CalendarPage.css";
 import { setGifTheme, fetchGifList } from "../actions/gif";
 
 class CalendarPage extends Component {
   state = {
-    show: false
+    show: false,
+    dateOpened: 0
   };
 
-  openModal = () => {
+  componentDidMount = () => {
+    this.props.loadData();
+  };
+
+  openModal = date => {
+    console.log(date)
     this.setState({
-      show: true
+      show: true,
+      dateOpened: date
     });
   };
 
   closeModal = () => {
     this.setState({
-      show: false
+      show: false,
+      dateOpened: 0
     });
   };
 
@@ -32,16 +41,16 @@ class CalendarPage extends Component {
   };
 
   render() {
-    const theme = this.props.theme;
+    const { theme, gifSet } = this.props;
     return (
       <div className={`${theme}-background`}>
         {this.state.show ? (
           <div onClick={this.closeModal} className="back-drop" />
         ) : null}
         <Theme themeChange={this.handleThemeChange} />
-        <Gallery openModal={this.openModal} theme={theme} />
+        <Gallery openModal={this.openModal} theme={theme} gifSet={gifSet} />
         <Modal className="modal" show={this.state.show} close={this.closeModal}>
-          <RandomGif />
+          <DateGif gif={gifSet[this.state.dateOpened]} />
         </Modal>
       </div>
     );
@@ -50,12 +59,16 @@ class CalendarPage extends Component {
 
 const mapState = state => {
   return {
-    theme: state.gifReducer.theme
+    theme: state.gifReducer.theme,
+    gifSet: state.gifReducer.gifSet
   };
 };
 
 const mapDispatch = dispatch => {
   return {
+    loadData() {
+      dispatch(fetchGifList());
+    },
     setTheme(theme, offset) {
       dispatch(setGifTheme(theme));
       dispatch(fetchGifList(offset));

@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 
 import {getDate } from '../utils/date';
 
@@ -11,4 +10,4 @@ const GridItem = (props) => {
   );
 };
 
-export default connect()(GridItem);
+export default GridItem;

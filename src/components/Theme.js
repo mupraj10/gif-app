@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 
 import "./Theme.css";
 
@@ -16,4 +15,4 @@ const Theme = props => {
   );
 };
 
-export default connect()(Theme);
+export default Theme;

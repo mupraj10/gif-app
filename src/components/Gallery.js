@@ -1,30 +1,38 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import GridItem from "./GridItem";
 
 import "./Gallery.css";
-import { fetchRandomGif } from "../actions/gif";
-
-const items = 25;
 
 class Gallery extends Component {
-  handleClick = () => {
-    this.props.openModal();
-    this.props.loadData();
+  handleClick = (evt, date) => {
+    this.props.openModal(date);
   };
 
+  // generateGrid = () => {
+  //   const gridItems = [];
+  //   for (let i = 0; i < items; i++) {
+  //     gridItems.push(
+  //       <GridItem
+  //         key={`griditem${i}`}
+  //         title={`griditem-${i}`}
+  //         onClick={this.handleClick}
+  //       />
+  //     );
+  //   }
+  //   return gridItems;
+  // };
+
   generateGrid = () => {
-    const gridItems = [];
-    for (let i = 0; i < items; i++) {
-      gridItems.push(
+    let gifList = this.props.gifSet  
+    return gifList.map((gifObj, i) => {
+      return (
         <GridItem
           key={`griditem${i}`}
           title={`griditem-${i}`}
-          onClick={this.handleClick}
+          onClick={(evt) => this.handleClick(evt, i)}
         />
       );
-    }
-    return gridItems;
+    });
   };
 
   render() {
@@ -39,21 +47,4 @@ class Gallery extends Component {
   }
 }
 
-const mapState = state => {
-  return {
-    gif: state.gifReducer.randomGif
-  };
-};
-
-const mapDispatch = dispatch => {
-  return {
-    loadData() {
-      dispatch(fetchRandomGif());
-    }
-  };
-};
-
-export default connect(
-  mapState,
-  mapDispatch
-)(Gallery);
+export default (Gallery);
