@@ -14,7 +14,7 @@ class RandomGif extends Component {
 
 const mapState = state => {
   return {
-    gif: state.simpleReducer.randomGif
+    gif: state.gifReducer.randomGif
   };
 };
 

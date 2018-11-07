@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import simpleReducer from './simpleReducer';
+import gifReducer from './gifReducer';
 
 export default combineReducers({
- simpleReducer
+ gifReducer
 });

@@ -1,0 +1,11 @@
+.theme-container {
+    padding: 50px 25px 0px;
+}
+
+.theme-option {
+    padding: 2px;
+}
+
+.theme-option :active {
+    border-bottom: 2px solid blue; 
+}

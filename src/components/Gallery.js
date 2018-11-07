@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import GridItem from "./GridItem";
 
 import "./Gallery.css";
-import { fetchRandomGif } from "../actions/simpleAction";
+import { fetchRandomGif } from "../actions/gif";
 
 const items = 25;
 
@@ -31,7 +31,7 @@ class Gallery extends Component {
     return (
       <div>
         <div className="grid-container">
-          <h1> Calendar</h1>
+          <span> Gif Advent Calendar - {this.props.theme} </span>
           <div className="grid">{this.generateGrid()}</div>
         </div>
       </div>
@@ -41,7 +41,7 @@ class Gallery extends Component {
 
 const mapState = state => {
   return {
-    gif: state.simpleReducer.randomGif
+    gif: state.gifReducer.randomGif
   };
 };
 

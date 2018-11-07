@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import Modal from "../components/Modal";
 import RandomGif from "../components/random-gif";
 import Gallery from "../components/Gallery";
+import Theme from "../components/Theme";
+
+import "./CalendarPage.css";
+import { setGifTheme } from "../actions/gif";
 
 class CalendarPage extends Component {
   state = {
@@ -21,13 +25,19 @@ class CalendarPage extends Component {
     });
   };
 
+  handleThemeChange = (option) => {
+    this.props.setTheme(option);
+  }
+
   render() {
+    const theme=this.props.theme;
     return (
-      <div>
+      <div className={`${theme}-background`}>
         {this.state.show ? (
           <div onClick={this.closeModal} className="back-drop" />
         ) : null}
-        <Gallery openModal={this.openModal} />
+        <Theme themeChange={this.handleThemeChange} />
+        <Gallery openModal={this.openModal} theme={theme}/>
         <Modal className="modal" show={this.state.show} close={this.closeModal}>
           <RandomGif />
         </Modal>
@@ -36,4 +46,21 @@ class CalendarPage extends Component {
   }
 }
 
-export default connect()(CalendarPage);
+const mapState = state => {
+  return {
+    theme: state.gifReducer.theme
+  };
+};
+
+const mapDispatch = dispatch => {
+  return {
+    setTheme(theme) {
+      dispatch(setGifTheme(theme));
+    }
+  };
+};
+
+export default connect(
+  mapState,
+  mapDispatch
+)(CalendarPage);
