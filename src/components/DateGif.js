@@ -5,7 +5,6 @@ class DateGif extends Component {
     let gif = this.props.gif;
     return (
       <div>
-        Adding in Paper
         <img src={gif && gif.images.original.url} alt="some img" />
       </div>
     );

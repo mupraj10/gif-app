@@ -1,10 +1,10 @@
-
 .modal-container {
     background: white;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
     margin: 25px auto 0;
     transition: all .8s;
-    width: 60%;
+    width: 75%;
+    height: 75%;
     border: 2px black solid;
     border-radius: 10px;
 }
@@ -17,15 +17,15 @@
     text-align: right;
 }
 
-.modal-header h3 {
-    color: white;
-    float: left;
-    margin: 0;
-    padding: 0;
+.modal-cover {
+    background-color:green;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    border-radius: 10px;
 }
 
 .modal-body {
-    padding: 10px 15px;
     text-align: center;
 }
 
@@ -59,4 +59,11 @@
     margin: 15px;
     padding: 10px;
     font-weight: bold;
+}
+
+@media only screen and (min-width: 600px) {
+    .modal-container {
+        width: 50%;
+        height: 50%%;
+    }
 }

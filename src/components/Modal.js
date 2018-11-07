@@ -12,15 +12,22 @@ const Modal = props => {
         transform: props.show ? "translateY(-60vh)" : "translateY(-100vh)"
       }}
     >
+      <div
+        className="modal-cover"
+        style={{
+          opacity: props.open ? "0" : "1",
+          transform: props.open ? "translateY(-60vh)" : "none"
+        }}
+      >
+        {" "}
+        <span onClick={props.handleOpen}> Click to reveal! </span>{" "}
+      </div>
       <div className="modal-header">
-        <h3>Modal Header</h3>
         <span className="close-modal-btn" onClick={props.close}>
           ×
         </span>
       </div>
-      <div className="modal-body">
-        {props.children}
-      </div>
+      <div className="modal-body">{props.children}</div>
     </div>
   );
 };

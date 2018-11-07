@@ -12,7 +12,8 @@ import { setGifTheme, fetchGifList } from "../actions/gif";
 class CalendarPage extends Component {
   state = {
     show: false,
-    dateOpened: 0
+    dateOpened: 0,
+    open: false
   };
 
   componentDidMount = () => {
@@ -20,7 +21,7 @@ class CalendarPage extends Component {
   };
 
   openModal = date => {
-    console.log(date)
+    console.log(date);
     this.setState({
       show: true,
       dateOpened: date
@@ -30,7 +31,14 @@ class CalendarPage extends Component {
   closeModal = () => {
     this.setState({
       show: false,
-      dateOpened: 0
+      dateOpened: 0,
+      open: false
+    });
+  };
+
+  handleCover = () => {
+    this.setState({
+      open: true
     });
   };
 
@@ -44,14 +52,21 @@ class CalendarPage extends Component {
     const { theme, gifSet } = this.props;
     return (
       <div className={`${theme}-background`}>
+        {" "}
         {this.state.show ? (
           <div onClick={this.closeModal} className="back-drop" />
-        ) : null}
-        <Theme themeChange={this.handleThemeChange} />
-        <Gallery openModal={this.openModal} theme={theme} gifSet={gifSet} />
-        <Modal className="modal" show={this.state.show} close={this.closeModal}>
-          <DateGif gif={gifSet[this.state.dateOpened]} />
-        </Modal>
+        ) : null}{" "}
+        <Theme themeChange={this.handleThemeChange} />{" "}
+        <Gallery openModal={this.openModal} theme={theme} gifSet={gifSet} />{" "}
+        <Modal
+          className="modal"
+          show={this.state.show}
+          close={this.closeModal}
+          handleOpen={this.handleCover}
+          open={this.state.open}
+        >
+          <DateGif gif={gifSet[this.state.dateOpened]} />{" "}
+        </Modal>{" "}
       </div>
     );
   }
