@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Modal from "../components/Modal";
-import RandomGif from "../components/random-gif";
 import Gallery from "../components/Gallery";
 import Theme from "../components/Theme";
-import DateGif from "../components/DateGif";
 
 import "./CalendarPage.css";
 import { setGifTheme, fetchGifList } from "../actions/gif";
@@ -20,28 +17,12 @@ class CalendarPage extends Component {
     this.props.loadData();
   };
 
-  openModal = date => {
-    console.log(date);
+  handleShow = () => {
     this.setState({
-      show: true,
-      dateOpened: date
+      open: false,
+      show: true
     });
   };
-
-  closeModal = () => {
-    this.setState({
-      show: false,
-      dateOpened: 0,
-      open: false
-    });
-  };
-
-  handleCover = () => {
-    this.setState({
-      open: true
-    });
-  };
-
   handleThemeChange = option => {
     // if the same option is clicked again offset the results
     let offset = this.props.theme === option;
@@ -52,21 +33,8 @@ class CalendarPage extends Component {
     const { theme, gifSet } = this.props;
     return (
       <div className={`${theme}-background`}>
-        {" "}
-        {this.state.show ? (
-          <div onClick={this.closeModal} className="back-drop" />
-        ) : null}{" "}
-        <Theme themeChange={this.handleThemeChange} />{" "}
-        <Gallery openModal={this.openModal} theme={theme} gifSet={gifSet} />{" "}
-        <Modal
-          className="modal"
-          show={this.state.show}
-          close={this.closeModal}
-          handleOpen={this.handleCover}
-          open={this.state.open}
-        >
-          <DateGif gif={gifSet[this.state.dateOpened]} />{" "}
-        </Modal>{" "}
+        <Theme themeChange={this.handleThemeChange} />
+        <Gallery handleShow={this.handleShow} show={this.state.show} theme={theme} gifSet={gifSet} />
       </div>
     );
   }
@@ -75,7 +43,8 @@ class CalendarPage extends Component {
 const mapState = state => {
   return {
     theme: state.gifReducer.theme,
-    gifSet: state.gifReducer.gifSet
+    gifSet: state.gifReducer.gifSet, 
+    // data: 
   };
 };
 
