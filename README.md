@@ -10,8 +10,8 @@ This app is deployed [here](http://maggy.works/gif-app/);
     `git clone git@github.com:mupraj10/gif-add.git`
 2.  Install dependencies using `npm install`
 3.  Add a `secrets.js` and add in the GIPHY API KEY found in this [gist](https://gist.github.com/mupraj10/23864457025c50c693bcb198fd40f30a)
-4.  Start your server using `npm start`
-5.  Navigate to app in [browser](http://localhost:8080)
+4.  Start your server using `npm start`, which should open up a window for the app in your browser if not continue on to step 5
+5.  Navigate to app in [browser](http://localhost:3000)
 6.  Enjoy!
 
 ## Problem
