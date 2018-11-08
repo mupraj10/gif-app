@@ -1,4 +1,4 @@
-# D# Technical Challenge
+# D3 Technical Challenge
 
 Hi! This is a coding challenge completed by [Maggy Prajapati](mailto:mupraj10@gmail.com)
 
@@ -44,7 +44,7 @@ Submission: Send us a link to your assignment repo and don't forget to include i
     - click any date and it will flip the card to display a gif
     - click multiple dates and multiple cards will flip
     - see the calendar state remain persistent within a session
-    - find an easter egg to get a random gif which loads in a modal using the clickable icon that scrolls on the right hand side of the screen
+    - find an easter egg to get a random gif opens when clicking the icon that scrolls on the right hand side of the screen
 
 - Code
 
@@ -68,7 +68,6 @@ Submission: Send us a link to your assignment repo and don't forget to include i
 
 - I would want to
   - add test specs
-  - make the calendar more responsive
-    - since I wrote out all the css it required more thinking of all the views
+  - make the calendar more responsive (use css grid, flexbox)
   - more styling to the calendar depending on the themes
   - add more themes or allow the user to type in their own theme

@@ -29,10 +29,23 @@ class CalendarPage extends Component {
     this.props.setTheme(option, offset);
   };
 
+  handleRandom = () => {
+    let random = Math.floor(Math.random() * 25);
+    this.handleFlip(random);
+  };
+
   render() {
     const { theme, data } = this.props;
     return (
       <div className={`${theme}-background`}>
+        <span
+          className="sticky"
+          role="img"
+          aria-label="magic-ball"
+          onClick={this.handleRandom}
+        >
+          🔮
+        </span>
         <Theme themeChange={this.handleThemeChange} />
         <Gallery handleFlip={this.handleFlip} data={data} theme={theme} />
       </div>

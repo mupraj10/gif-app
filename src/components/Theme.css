@@ -1,5 +1,5 @@
 .theme-container {
-    padding: 50px 25px 0px;
+    padding: 10px 10px 0px;
     font-size: 15px;
 }
 
@@ -8,5 +8,5 @@
 }
 
 .theme-option span:hover {
-    border-bottom: 2px dotted gray; 
+    border-bottom: 2px dotted gray;
 }

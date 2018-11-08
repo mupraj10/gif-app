@@ -1,3 +1,11 @@
+.sticky {
+    position: sticky;
+    top: 0;
+    float: right;
+    cursor: pointer;
+}
+
+
 .puppies-background {
     background-color: #77878B
 }
