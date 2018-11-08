@@ -1,0 +1,23 @@
+.sticky {
+    position: sticky;
+    top: 0;
+    float: right;
+    cursor: pointer;
+}
+
+
+.puppies-background {
+    background-color: #77878B
+}
+
+.christmas-background {
+    background-color: #2f6e4c;
+}
+
+.superman-background {
+    background-color: #D33E43
+}
+
+.disney-background {
+    background-color: #304DA5;
+}

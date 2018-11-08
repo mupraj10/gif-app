@@ -1,0 +1,19 @@
+.grid {
+  display: inline-block;
+  margin: 20px 30px 0px; 
+  padding-left: 20px;
+  width: 96%;
+}
+
+.grid-title{
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card img {
+  width: 200px;
+  height: 150px;
+  margin: 30px 26px;
+}
