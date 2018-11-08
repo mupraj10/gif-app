@@ -1,13 +1,14 @@
 import {
   GET_NEW_GIF,
   SET_GIF_THEME,
-  SET_GIF_LIST
+  SET_GIF_LIST,
+  FLIP
 } from '../actions/gif';
 
 const initialState = {
   randomGif: {},
   theme: 'puppies',
-  gifSet: []
+  data: []
 }
 
 export default (state = initialState, action) => {
@@ -22,8 +23,13 @@ export default (state = initialState, action) => {
       })
     case SET_GIF_LIST:
       return Object.assign({}, state, {
-        gifSet: action.list
+        data: action.list
       })
+    case FLIP:
+      return Object.assign({}, state, {
+        data: action.data
+      })
+
     default:
       return state
   }

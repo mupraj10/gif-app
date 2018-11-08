@@ -1,11 +1,7 @@
-import React, { Component } from "react";
-import { getDate } from "../utils/date";
+import React from "react";
 
-class FrontCard extends Component {
-  render() {
-    return <div className="front card">-1</div>;
-  }
-}
+const FrontCard = props => {
+  return <div className="front card">{props.date}</div>;
+};
 
 export default FrontCard;
-// {getDate(props.title)}

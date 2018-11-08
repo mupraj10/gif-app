@@ -4,24 +4,25 @@ import Gallery from "../components/Gallery";
 import Theme from "../components/Theme";
 
 import "./CalendarPage.css";
-import { setGifTheme, fetchGifList } from "../actions/gif";
+import { setGifTheme, fetchGifList, flip } from "../actions/gif";
+
+const { update, set } = require("immutable");
 
 class CalendarPage extends Component {
-  state = {
-    show: false,
-    dateOpened: 0,
-    open: false
-  };
-
   componentDidMount = () => {
     this.props.loadData();
   };
 
-  handleShow = () => {
-    this.setState({
-      open: false,
-      show: true
-    });
+  handleFlip = id => {
+    const currentState = this.props.data;
+    console.log(currentState[id].flipped);
+    const status = currentState[id].flipped ? false : true;
+    console.log(status);
+
+    const updatedData = update(currentState, id, obj =>
+      set(obj, "flipped", status)
+    );
+    this.props.flip(updatedData);
   };
   handleThemeChange = option => {
     // if the same option is clicked again offset the results
@@ -30,11 +31,11 @@ class CalendarPage extends Component {
   };
 
   render() {
-    const { theme, gifSet } = this.props;
+    const { theme, data } = this.props;
     return (
       <div className={`${theme}-background`}>
         <Theme themeChange={this.handleThemeChange} />
-        <Gallery handleShow={this.handleShow} show={this.state.show} theme={theme} gifSet={gifSet} />
+        <Gallery handleFlip={this.handleFlip} data={data} theme={theme} />
       </div>
     );
   }
@@ -43,8 +44,7 @@ class CalendarPage extends Component {
 const mapState = state => {
   return {
     theme: state.gifReducer.theme,
-    gifSet: state.gifReducer.gifSet, 
-    // data: 
+    data: state.gifReducer.data
   };
 };
 
@@ -56,6 +56,9 @@ const mapDispatch = dispatch => {
     setTheme(theme, offset) {
       dispatch(setGifTheme(theme));
       dispatch(fetchGifList(offset));
+    },
+    flip(newList) {
+      dispatch(flip(newList));
     }
   };
 };

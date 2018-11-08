@@ -4,11 +4,15 @@ import {
     randomUrl
 } from '../utils/gifurl';
 
+import {
+    massageData
+} from '../utils/massage';
 
 // action types 
 export const GET_NEW_GIF = 'GET_NEW_GIF';
 export const SET_GIF_THEME = 'SET_GIF_THEME';
 export const SET_GIF_LIST = 'SET_GIF_LIST';
+export const FLIP = "FLIP";
 
 // action creators 
 const getNewGif = (gif) => ({
@@ -26,6 +30,12 @@ export const setGifList = (list) => ({
     list
 })
 
+export const flip = (data) => ({
+    type: FLIP,
+    data
+})
+
+
 // thunk creators 
 export const fetchRandomGif = () =>
     dispatch =>
@@ -42,6 +52,8 @@ export const fetchGifList = (offset) =>
         let url = generateUrl(theme, offset);
         axios.get(url)
             .then(res => res.data)
-            .then(obj => dispatch(setGifList(obj.data)))
+            .then(obj => dispatch(
+                setGifList(massageData(obj.data))
+            ))
             .then(err => console.log(err));
     }

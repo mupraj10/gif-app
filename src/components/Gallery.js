@@ -1,32 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import GridItem from "./GridItem";
 
 import "./Gallery.css";
 
-class Gallery extends Component {
-  generateGrid = () => {
-    let gifList = this.props.gifSet;
-    return gifList.map((gifObj, i) => {
+const Gallery = (props) => {
+  const generateGrid = (data) => {
+    return data.map((gifObj) => {
+      let id = gifObj.id;
       return (
         <GridItem
-          key={`griditem${i}`}
-          title={`griditem-${i}`}
-          onClick={this.props.handleShow}
-          gif={gifList[i]}
-          flipped={this.props.flipped}
+          key={`griditem${id}`}
+          title={`griditem-${id}`}
+          handleFlip={props.handleFlip}
+          gif={gifObj.gif}
+          flipped={gifObj.flipped}
         />
       );
     });
   };
-
-  render() {
-    return (
-      <div className="grid-container">
-        <span> Gif Advent Calendar - {this.props.theme} </span>
-        <div className="grid">{this.generateGrid()}</div>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="grid-container">
+      <span> Gif Advent Calendar - {props.theme} </span>
+      <div className="grid">{generateGrid(props.data)}</div>
+    </div>
+  );
+};
 
 export default Gallery;

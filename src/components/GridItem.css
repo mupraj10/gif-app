@@ -45,10 +45,10 @@
   .griditem-container .back {
     transform: rotateY(-180deg);
   }
-  .griditem-container div.griditem.flipped .front {
+  .griditem-container div.griditem-flip.front {
     transform: rotateY(180deg);
   }
-  .griditem-container div.griditem.flipped .back {
+  .griditem-container div.griditem-flip .back {
     transform: rotateY(0deg);
   }
   
