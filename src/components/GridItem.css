@@ -7,9 +7,11 @@
     perspective: 1000px;
     margin-bottom: 10px;
   }
+
   .griditem-container span {
     color: white;
   }
+
   .griditem-container > div.griditem {
     float: left;
     width: 100%;
@@ -17,6 +19,7 @@
     position: relative;
     transform-style: preserve-3d;
   }
+
   .griditem-container > div.griditem .front,
   .griditem-container > div.griditem .back {
     float: left;
@@ -31,10 +34,12 @@
     transition: -webkit-transform ease 500ms;
     transition: transform ease 500ms;
   }
+
   .griditem-container > div.griditem .front {
     z-index: 2;
     background: #19489E;
   }
+
   .griditem-container > div.griditem .back {
     background: #9E1919;
   }
@@ -42,13 +47,15 @@
   .griditem-container .front {
     transform: rotateY(0deg);
   }
+
   .griditem-container .back {
     transform: rotateY(-180deg);
   }
-  .griditem-container div.griditem-flip.front {
+  
+  .griditem-container div.griditem.flip .front {
     transform: rotateY(180deg);
   }
-  .griditem-container div.griditem-flip .back {
+  .griditem-container div.griditem.flip .back {
     transform: rotateY(0deg);
   }
   
