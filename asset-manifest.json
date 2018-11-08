@@ -1,0 +1,13 @@
+{
+  "main.css": "/gif-app/static/css/main.6e84fa5b.chunk.css",
+  "main.js": "/gif-app/static/js/main.234acd4d.chunk.js",
+  "main.js.map": "/gif-app/static/js/main.234acd4d.chunk.js.map",
+  "static/js/1.d0cf8000.chunk.js": "/gif-app/static/js/1.d0cf8000.chunk.js",
+  "static/js/1.d0cf8000.chunk.js.map": "/gif-app/static/js/1.d0cf8000.chunk.js.map",
+  "runtime~main.js": "/gif-app/static/js/runtime~main.9a65d169.js",
+  "runtime~main.js.map": "/gif-app/static/js/runtime~main.9a65d169.js.map",
+  "static/css/main.6e84fa5b.chunk.css.map": "/gif-app/static/css/main.6e84fa5b.chunk.css.map",
+  "index.html": "/gif-app/index.html",
+  "precache-manifest.9b5e043ed611f3b1ead6e0c8114e4c3b.js": "/gif-app/precache-manifest.9b5e043ed611f3b1ead6e0c8114e4c3b.js",
+  "service-worker.js": "/gif-app/service-worker.js"
+}
