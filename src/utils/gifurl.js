@@ -16,7 +16,6 @@ export function generateUrl(theme, offset) {
     let limit = 25;
     let url = `${searchEndPoint}&api_key=${apiKey}&q=${
         searchTerm}&limit=${limit}&offset=${offset}&rating=${rating}`;
-        console.log(url);
     return url;
 }
 

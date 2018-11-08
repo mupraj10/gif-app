@@ -1,11 +1,12 @@
 .theme-container {
     padding: 50px 25px 0px;
+    font-size: 15px;
 }
 
 .theme-option {
     padding: 2px;
 }
 
-.theme-option :active {
-    border-bottom: 2px solid blue; 
+.theme-option span:hover {
+    border-bottom: 2px dotted gray; 
 }

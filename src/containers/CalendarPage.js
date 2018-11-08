@@ -15,13 +15,12 @@ class CalendarPage extends Component {
 
   handleFlip = id => {
     const currentState = this.props.data;
-    console.log(currentState[id].flipped);
     const status = currentState[id].flipped ? false : true;
-    console.log(status);
 
     const updatedData = update(currentState, id, obj =>
       set(obj, "flipped", status)
     );
+
     this.props.flip(updatedData);
   };
   handleThemeChange = option => {
