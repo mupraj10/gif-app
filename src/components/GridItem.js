@@ -1,13 +1,21 @@
 import React from "react";
+import FrontCard from "./FrontCard";
+import BackCard from "./BackCard";
 
-import {getDate } from '../utils/date';
+import "./GridItem.css";
 
-const GridItem = (props) => {
+const GridItem = props => {
+  const flip = props.flip ? "flip" : "noflip";
   return (
-    <div onClick={props.onClick} className={props.title}>
-      <span className='grid-date'> {getDate(props.title)} </span>
+    <div className="griditem-container">
+      <div className="griditem">
+        <FrontCard />
+        <BackCard />
+      </div>
     </div>
   );
 };
+
+
 
 export default GridItem;

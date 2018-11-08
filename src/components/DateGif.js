@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import "./DateGif.css";
 
 class DateGif extends Component {
   render() {

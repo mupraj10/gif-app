@@ -1,0 +1,54 @@
+.griditem-container {
+    float: left;
+    width: 250px;
+    height: 250px;
+    margin-right: 15px;
+    display: block;
+    perspective: 1000px;
+    margin-bottom: 10px;
+  }
+  .griditem-container span {
+    color: white;
+  }
+  .griditem-container > div.griditem {
+    float: left;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+  }
+  .griditem-container > div.griditem .front,
+  .griditem-container > div.griditem .back {
+    float: left;
+    display: block;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transition: -webkit-transform ease 500ms;
+    transition: transform ease 500ms;
+  }
+  .griditem-container > div.griditem .front {
+    z-index: 2;
+    background: #19489E;
+  }
+  .griditem-container > div.griditem .back {
+    background: #9E1919;
+  }
+  
+  .griditem-container .front {
+    transform: rotateY(0deg);
+  }
+  .griditem-container .back {
+    transform: rotateY(-180deg);
+  }
+  .griditem-container div.griditem.flipped .front {
+    transform: rotateY(180deg);
+  }
+  .griditem-container div.griditem.flipped .back {
+    transform: rotateY(0deg);
+  }
+  
