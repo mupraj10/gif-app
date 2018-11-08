@@ -2,8 +2,10 @@
   "name": "gif-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mupraj10.github.io/gif-app",
   "dependencies": {
     "axios": "^0.18.0",
+    "gh-pages": "^2.0.1",
     "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.11",
     "react": "^16.6.0",
@@ -15,6 +17,8 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -1,44 +1,73 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# D3 Technical Challenge
 
-## Available Scripts
+Hi! This is a coding challenge completed by [Maggy Prajapati](mailto:mupraj10@gmail.com)
 
-In the project directory, you can run:
+This app is deployed [here](http://maggy.works/gif-app/);
 
-### `npm start`
+## Instructions
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1.  Navigate to [repo](https://github.com/mupraj10/gif-app) and clone locally using
+    `git clone git@github.com:mupraj10/gif-add.git`
+2.  Install dependencies using `npm install`
+3.  Add a `secrets.js` and add in the GIPHY API KEY found in this [gist](https://gist.github.com/mupraj10/23864457025c50c693bcb198fd40f30a)
+4.  Start your server using `npm start`
+5.  Navigate to app in [browser](http://localhost:8080)
+6.  Enjoy!
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Problem
 
-### `npm test`
+```
+Task: create a simple web app that interfaces with the GIPHY API (https://developers.giphy.com) and render the results using React and Redux
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Guidelines:
+- Please do not use any jQuery
+- Be creative! Anyone can render a list of images - creative use of input events and animations get bonus points!
+- External dependencies are OK - but the more original code the better.
+- Create something that showcases your styling and CSS skills.
+- Clean, cool, sensible UIs are your friend.
 
-### `npm run build`
+For example, create a GIPHY bubble wrap app where you pop a bubble and get a gif. Be original and have fun with it!
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Submission: Send us a link to your assignment repo and don't forget to include installation instructions in your readme. We look forward to seeing what you come up with!
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Notes
 
-### `npm run eject`
+#### Things I was able to accomplish:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- User journey
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  - As a user and the page load you can
+    - select any theme to change the calendar theme
+      - gif rendered and backgound color of the page will change
+    - click any date and it will flip the card to display a gif
+    - click multiple dates and multiple cards will flip
+    - see the calendar state remain persistent within a session
+    - find an easter egg to get a random gif opens when clicking the icon that scrolls on the right hand side of the screen
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Code
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  - Data is fetched on by an action that is dispatach when the intial component mounts using a default theme of puppies using the Giphy API Search endpoint
+  - Data is massaged before getting to the components to only contain the link of the gif, it's id, and the state of the card and whether it has been flipped or not
+  - There is only one container `CalendarPage` where the store is connected to the app
+  - All components retrieve the data needed via props
+    - Most components are stateless
+  - I added utility functions to make the code as dry as possible
 
-## Learn More
+- Tools
+  - `create-react-app` - for the boilerplate and scaffold
+  - `react-redux` - so I could use `connect`
+  - `lodash` - to implement `shuffle` as I massaged the data
+  - `immuntable` - to conserve the data and therefore have access to functions like `update` and `set`
+  - `redux-thunk` - allow me to dispatch an action that fetchs the data
+  - `axios` - to make the calls to the `giphy api`
+  - `css` - plain old css to add styling
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### If I had more time:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- I would want to
+  - add test specs
+  - make the calendar more responsive (use css grid, flexbox)
+  - more styling to the calendar depending on the themes
+  - add more themes or allow the user to type in their own theme
